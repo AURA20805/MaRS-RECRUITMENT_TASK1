@@ -17,3 +17,33 @@ This value is shown on the Serial Monitor. Then the system resets with a new ran
 # SEC-B_FIRE AND SMOKE ALARM
 # https://www.tinkercad.com/things/20VYZd0C32R-amazing-jofo-elzing/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=_HSVFgfT1PFmDEkDdTC--uKgOn4elU-FjSjIMaFMsCU
 # This circuit checks two things at the same time — temperature and gas concentration. The temperature sensor is connected to A1, and its analog value is converted into degrees Celsius using a small calculation. If the temperature crosses 80°C, the LED on pin 13 switches ON as a warning. At the same time, a gas sensor on A0 keeps reading the gas level. If the gas value goes above 100, the piezo buzzer turns ON to alert the user. Both readings are printed on the serial monitor every second so we can see the live temperature and gas values. Basically, the LED warns about overheating, and the buzzer warns about gas leakage, and the Arduino keeps checking both continuously.
+# Smoke & Fire Alarm System – Readme
+1. What the Project Does & Why I Chose It
+
+This project is a simple smoke and fire alarm that detects two dangers: high temperature and gas/smoke concentration. When the temperature rises above a safe level, an LED turns on as a fire alert. When the gas sensor detects smoke or harmful gases, a piezo buzzer starts beeping.
+I chose this project because it is practical, easy to understand, and directly connected to real-life safety systems. It also allowed me to work with both analog sensors and output devices, which made the circuit more meaningful instead of just blinking LEDs.
+
+2. Components Used & Their Roles
+Arduino Uno – Main controller that reads sensor values and decides when to trigger the alarms.
+LM35 Temperature Sensor (A1) – Measures the surrounding temperature in millivolts (10 mV per °C).
+MQ Gas Sensor (A0) – Detects smoke or harmful gases and outputs an analog value.
+LED (Pin 13) – Lights up when the temperature crosses the safety limit (fire alert).
+Piezo Buzzer (Pin 7) – Makes sound when gas levels become high (smoke alert).
+Resistors & Jumper Wires – For safe connections.
+Breadboard – Used to organize and build the circuit.
+
+3. Challenges Faced & How I Solved Them
+
+1. Incorrect temperature calculations:
+At first, the values from the LM35 were not matching real temperature. I realized I was reading raw ADC values, so I converted them properly:
+Voltage = (ADC/1023) × 5000
+Temperature = (Voltage − 500) / 10
+
+2. Piezo buzzer not responding:
+The buzzer stayed silent because I had forgotten to set its pin as OUTPUT. After adding pinMode(piezo, OUTPUT);, it worked correctly.
+
+3. Gas sensor giving unstable readings:
+The MQ sensor fluctuates a lot during warm-up. I solved this by choosing a simple threshold value (100) and testing multiple times until the response became stable.
+
+4. Making both sensors work together:
+Sometimes only one alert worked because the code logic overlapped. I separated the conditions clearly, so temperature controls the LED and gas concentration controls the buzzer independently.
