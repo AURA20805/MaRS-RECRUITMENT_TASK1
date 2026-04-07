@@ -10,7 +10,9 @@
 
 # SEC-A_Q3_a reaction time tester
 # https://www.tinkercad.com/things/jamVrv4cWqQ/editel?returnTo=%2Fdashboard&sharecode=LIibAcbwkYzO-iCr7LL8TghZOAzH3cBRDSH706Nzcm4
-# In this circuit, the Arduino waits for a random amount of time and then suddenly turns the LED on. The moment the LED lights up, a timer starts running inside the code. Now the only job for the user is to press the button as fast as they can. When the button is pressed, the Arduino stops the timer and calculates how many milliseconds passed since the LED turned on. That value is printed as the reaction time. After that, the whole thing resets with a new random delay, so the user can’t predict when the next LED flash will happen. Basically, the LED is the “signal,” the button is the “response,” and the Arduino measures how fast the user reacts.
+# The Arduino waits for a random time using millis(). When that time is over, the LED turns ON and the timer starts. The button uses INPUT_PULLUP, so it reads LOW only when pressed. The reaction time is calculated as:
+reaction time = millis() − ledOnTime
+This value is shown on the Serial Monitor. Then the system resets with a new random delay for the next test.
 
 # SEC-B_FIRE AND SMOKE ALARM
 # https://www.tinkercad.com/things/20VYZd0C32R-amazing-jofo-elzing/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=_HSVFgfT1PFmDEkDdTC--uKgOn4elU-FjSjIMaFMsCU
