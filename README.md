@@ -14,19 +14,25 @@ In this circuit, the potentiometer controls two things at the same time: the bli
 # https://www.tinkercad.com/things/jamVrv4cWqQ/editel?returnTo=%2Fdashboard&sharecode=LIibAcbwkYzO-iCr7LL8TghZOAzH3cBRDSH706Nzcm4
 
 The Arduino waits for a random time using millis(). When that time is over, the LED turns ON and the timer starts. The button uses INPUT_PULLUP, so it reads LOW only when pressed. The reaction time is calculated as:
+
 reaction time = millis() − ledOnTime
+
 This value is shown on the Serial Monitor. Then the system resets with a new random delay for the next test.
 
 # SEC-B_FIRE AND SMOKE ALARM
 # https://www.tinkercad.com/things/20VYZd0C32R-amazing-jofo-elzing/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=_HSVFgfT1PFmDEkDdTC--uKgOn4elU-FjSjIMaFMsCU
-This circuit checks two things at the same time — temperature and gas concentration. The temperature sensor is connected to A1, and its analog value is converted into degrees Celsius using a small calculation. If the temperature crosses 80°C, the LED on pin 13 switches ON as a warning. At the same time, a gas sensor on A0 keeps reading the gas level. If the gas value goes above 100, the piezo buzzer turns ON to alert the user. Both readings are printed on the serial monitor every second so we can see the live temperature and gas values. Basically, the LED warns about overheating, and the buzzer warns about gas leakage, and the Arduino keeps checking both continuously.
 # Smoke & Fire Alarm System – Readme
 1. What the Project Does & Why I Chose It
 
 This project is a simple smoke and fire alarm that detects two dangers: high temperature and gas/smoke concentration. When the temperature rises above a safe level, an LED turns on as a fire alert. When the gas sensor detects smoke or harmful gases, a piezo buzzer starts beeping.
 I chose this project because it is practical, easy to understand, and directly connected to real-life safety systems. It also allowed me to work with both analog sensors and output devices, which made the circuit more meaningful instead of just blinking LEDs.
 
-2. Components Used & Their Roles
+2.how does the circuit work ?
+
+This circuit checks two things at the same time — temperature and gas concentration. The temperature sensor is connected to A1, and its analog value is converted into degrees Celsius using a small calculation. If the temperature crosses 80°C, the LED on pin 13 switches ON as a warning. At the same time, a gas sensor on A0 keeps reading the gas level. If the gas value goes above 100, the piezo buzzer turns ON to alert the user. Both readings are printed on the serial monitor every second so we can see the live temperature and gas values. Basically, the LED warns about overheating, and the buzzer warns about gas leakage, and the Arduino keeps checking both continuously.
+
+3. Components Used & Their Roles
+
 Arduino Uno – Main controller that reads sensor values and decides when to trigger the alarms.
 LM35 Temperature Sensor (A1) – Measures the surrounding temperature in millivolts (10 mV per °C).
 MQ Gas Sensor (A0) – Detects smoke or harmful gases and outputs an analog value.
@@ -35,7 +41,7 @@ Piezo Buzzer (Pin 7) – Makes sound when gas levels become high (smoke alert).
 Resistors & Jumper Wires – For safe connections.
 Breadboard – Used to organize and build the circuit.
 
-3. Challenges Faced & How I Solved Them
+4. Challenges Faced & How I Solved Them
 
 1. Incorrect temperature calculations:
 At first, the values from the LM35 were not matching real temperature. I realized I was reading raw ADC values, so I converted them properly:
