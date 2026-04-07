@@ -45,7 +45,9 @@ Breadboard – Used to organize and build the circuit.
 
 a. Incorrect temperature calculations:
 At first, the values from the LM35 were not matching real temperature. I realized I was reading raw ADC values, so I converted them properly:
+
 Voltage = (ADC/1023) × 5000
+
 Temperature = (Voltage − 500) / 10
 
 b. Piezo buzzer not responding:
