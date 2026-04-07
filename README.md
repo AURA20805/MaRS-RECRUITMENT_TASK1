@@ -43,16 +43,16 @@ Breadboard – Used to organize and build the circuit.
 
 4. Challenges Faced & How I Solved Them
 
-1. Incorrect temperature calculations:
+a. Incorrect temperature calculations:
 At first, the values from the LM35 were not matching real temperature. I realized I was reading raw ADC values, so I converted them properly:
 Voltage = (ADC/1023) × 5000
 Temperature = (Voltage − 500) / 10
 
-2. Piezo buzzer not responding:
+b. Piezo buzzer not responding:
 The buzzer stayed silent because I had forgotten to set its pin as OUTPUT. After adding pinMode(piezo, OUTPUT);, it worked correctly.
 
-3. Gas sensor giving unstable readings:
+c. Gas sensor giving unstable readings:
 The MQ sensor fluctuates a lot during warm-up. I solved this by choosing a simple threshold value (100) and testing multiple times until the response became stable.
 
-4. Making both sensors work together:
+d. Making both sensors work together:
 Sometimes only one alert worked because the code logic overlapped. I separated the conditions clearly, so temperature controls the LED and gas concentration controls the buzzer independently.
