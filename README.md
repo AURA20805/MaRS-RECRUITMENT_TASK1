@@ -2,21 +2,24 @@
  
 # SEC-A_Q1_Blinking LED with different time interval
 # https://www.tinkercad.com/things/fE9anHA0crX/editel?returnTo=%2Fdashboard&sharecode=4yysxa7rMbQ7aW1_Ea8pIsO6-OXUaDu1r86xnFZNH0Y
-# In this circuit, each LED is connected to a different Arduino pin, and each one has its own blinking speed. Instead of using delay(), the program uses the millis() timer to keep track of how much time has passed. For each LED, the code checks whether its specific interval has finished. When the time is up, the LED’s state is flipped from ON to OFF (or vice versa), and the timer is reset for that LED. Because millis() lets all these checks happen at the same time, the three LEDs can blink independently at different speeds without stopping the entire program. So the whole idea is that each LED has its own timer running in parallel, and the Arduino controls all of them smoothly using millis().
+
+In this circuit, each LED is connected to a different Arduino pin, and each one has its own blinking speed. Instead of using delay(), the program uses the millis() timer to keep track of how much time has passed. For each LED, the code checks whether its specific interval has finished. When the time is up, the LED’s state is flipped from ON to OFF (or vice versa), and the timer is reset for that LED. Because millis() lets all these checks happen at the same time, the three LEDs can blink independently at different speeds without stopping the entire program. So the whole idea is that each LED has its own timer running in parallel, and the Arduino controls all of them smoothly using millis().
 
 # SEC-A_Q2_Controlling colour of RGB LED and blinking speed of another LED with potentiometer
 # https://www.tinkercad.com/things/apIB20Z61Td/editel?returnTo=%2Fdashboard&sharecode=8tlJpe5D96W164qyrd7JY3RkmRDYo0z6_c_pnUHw_8E
-# In this circuit, the potentiometer controls two things at the same time: the blinking speed of a separate LED and the colour of the RGB LED. The Arduino reads the potentiometer value and first converts it into a delay time, which decides how fast the blinking LED turns ON and OFF. Then the same potentiometer value is split into three ranges, and each range smoothly adjusts the red, green, and blue brightness levels. Because the values are mapped, the RGB LED fades through different colours as the knob is turned. So the pot acts like a dual controller—turning it changes the blink speed of the small LED and also creates a smooth colour-transition effect on the RGB LED.
+
+In this circuit, the potentiometer controls two things at the same time: the blinking speed of a separate LED and the colour of the RGB LED. The Arduino reads the potentiometer value and first converts it into a delay time, which decides how fast the blinking LED turns ON and OFF. Then the same potentiometer value is split into three ranges, and each range smoothly adjusts the red, green, and blue brightness levels. Because the values are mapped, the RGB LED fades through different colours as the knob is turned. So the pot acts like a dual controller—turning it changes the blink speed of the small LED and also creates a smooth colour-transition effect on the RGB LED.
 
 # SEC-A_Q3_a reaction time tester
 # https://www.tinkercad.com/things/jamVrv4cWqQ/editel?returnTo=%2Fdashboard&sharecode=LIibAcbwkYzO-iCr7LL8TghZOAzH3cBRDSH706Nzcm4
-# The Arduino waits for a random time using millis(). When that time is over, the LED turns ON and the timer starts. The button uses INPUT_PULLUP, so it reads LOW only when pressed. The reaction time is calculated as:
+
+The Arduino waits for a random time using millis(). When that time is over, the LED turns ON and the timer starts. The button uses INPUT_PULLUP, so it reads LOW only when pressed. The reaction time is calculated as:
 reaction time = millis() − ledOnTime
 This value is shown on the Serial Monitor. Then the system resets with a new random delay for the next test.
 
 # SEC-B_FIRE AND SMOKE ALARM
 # https://www.tinkercad.com/things/20VYZd0C32R-amazing-jofo-elzing/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=_HSVFgfT1PFmDEkDdTC--uKgOn4elU-FjSjIMaFMsCU
-# This circuit checks two things at the same time — temperature and gas concentration. The temperature sensor is connected to A1, and its analog value is converted into degrees Celsius using a small calculation. If the temperature crosses 80°C, the LED on pin 13 switches ON as a warning. At the same time, a gas sensor on A0 keeps reading the gas level. If the gas value goes above 100, the piezo buzzer turns ON to alert the user. Both readings are printed on the serial monitor every second so we can see the live temperature and gas values. Basically, the LED warns about overheating, and the buzzer warns about gas leakage, and the Arduino keeps checking both continuously.
+This circuit checks two things at the same time — temperature and gas concentration. The temperature sensor is connected to A1, and its analog value is converted into degrees Celsius using a small calculation. If the temperature crosses 80°C, the LED on pin 13 switches ON as a warning. At the same time, a gas sensor on A0 keeps reading the gas level. If the gas value goes above 100, the piezo buzzer turns ON to alert the user. Both readings are printed on the serial monitor every second so we can see the live temperature and gas values. Basically, the LED warns about overheating, and the buzzer warns about gas leakage, and the Arduino keeps checking both continuously.
 # Smoke & Fire Alarm System – Readme
 1. What the Project Does & Why I Chose It
 
