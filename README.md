@@ -76,9 +76,13 @@ I chose this because it is a very practical and useful idea, and it shows how se
 Components used & their roles
 
 Soil Moisture Sensor – Detects how much water is in the soil and gives an analog value.
+
 Arduino UNO – Reads the sensor value and decides whether to turn the motor/LED ON or OFF.
+
 NPN Transistor / Motor Output – Works like a switch that controls the motor using the Arduino.
+
 LED / Motor – Shows the output state. When the soil is wet, it turns ON.
+
 9V Battery – Gives extra power for the motor.
 
 Challenges faced & how I solved them
@@ -95,9 +99,13 @@ This project automatically opens a gate when a vehicle comes close to the ultras
 Components used & their roles
 
 Ultrasonic Sensor (HC-SR04) – Measures the distance to detect whether a vehicle is near the gate.
+
 Servo Motor – Works as the gate arm that lifts up when the vehicle is detected.
+
 Red LED – Shows that no vehicle is present and the gate is closed.
+
 Green LED – Turns on when a vehicle is detected and the gate starts opening.
+
 Arduino – Reads the sensor data and controls the LEDs and servo.
 
 Challenges faced & how I solved them
