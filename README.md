@@ -34,11 +34,17 @@ This circuit checks two things at the same time — temperature and gas concentr
 3. Components Used & Their Roles
 
 Arduino Uno – Main controller that reads sensor values and decides when to trigger the alarms.
+
 LM35 Temperature Sensor (A1) – Measures the surrounding temperature in millivolts (10 mV per °C).
+
 MQ Gas Sensor (A0) – Detects smoke or harmful gases and outputs an analog value.
+
 LED (Pin 13) – Lights up when the temperature crosses the safety limit (fire alert).
+
 Piezo Buzzer (Pin 7) – Makes sound when gas levels become high (smoke alert).
+
 Resistors & Jumper Wires – For safe connections.
+
 Breadboard – Used to organize and build the circuit.
 
 4. Challenges Faced & How I Solved Them
