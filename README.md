@@ -58,3 +58,42 @@ The MQ sensor fluctuates a lot during warm-up. I solved this by choosing a simpl
 
 d. Making both sensors work together:
 Sometimes only one alert worked because the code logic overlapped. I separated the conditions clearly, so temperature controls the LED and gas concentration controls the buzzer independently.
+
+# SEC-B_SMART IRRIGATION SYSTEM
+# https://www.tinkercad.com/things/dnXaZJyuoLC-soil-moisture-alarm?sharecode=Q7N1QHzcTE88r7vQsaw20xic0KCWdfNPBRvZX-3J3xA
+# Smart Irrigation System – README
+What the project does & why I chose it
+
+This project checks how wet or dry the soil is using a soil-moisture sensor. When the soil is dry, the system switches ON the motor/LED, and when the soil is wet, it turns it OFF automatically.
+I chose this because it is a very practical and useful idea, and it shows how sensors can help automate farming or plant care.
+
+Components used & their roles
+
+Soil Moisture Sensor – Detects how much water is in the soil and gives an analog value.
+Arduino UNO – Reads the sensor value and decides whether to turn the motor/LED ON or OFF.
+NPN Transistor / Motor Output – Works like a switch that controls the motor using the Arduino.
+LED / Motor – Shows the output state. When the soil is wet, it turns ON.
+9V Battery – Gives extra power for the motor.
+
+Challenges faced & how I solved them
+
+At first the sensor value was not stable and was giving random numbers. I fixed it by checking all the ground connections and making sure the sensor VCC went to the correct pin. Another issue was the motor not running because the transistor pins were connected wrongly. After rewiring the base, collector, and emitter properly, the circuit started working and the motor switched ON/OFF exactly based on the soil moisture reading.
+
+# SEC-B_SMART PARKING GATE SYSTEM
+# https://www.tinkercad.com/things/6uiLCJIpj0I-smart-parking-gate-system?sharecode=tl8V20WKrjNxcPm_zrDhLwKiymHem4UhblctkzlIodc
+# Smoke & Fire Alarm System – README
+What the project does & why I chose it
+
+This project is a simple smoke and fire alarm that uses a temperature sensor and a gas sensor to detect any unsafe conditions. When the temperature goes too high, the LED turns on, and when the gas level increases, the piezo buzzer alerts. I chose this project because it is easy to build, useful in real life, and it clearly shows how sensors can be used for safety systems.
+
+Components used & their roles
+
+Gas Sensor (MQ type) – Reads the concentration of smoke or gas in the air.
+Temperature Sensor (LM35) – Converts temperature into voltage, which helps calculate the actual temperature value.
+LED – Acts as a visual alert when temperature crosses the limit.
+Piezo Buzzer – Gives a loud sound when gas level becomes high.
+Arduino – Reads both sensors and decides when to turn on the LED or buzzer.
+
+Challenges faced & how I solved them
+
+One issue I had was converting the analog value from the temperature sensor into the correct Celsius value. I fixed it by using the proper formula and checking it on the serial monitor. Another challenge was that the piezo wasn’t reacting at first, and that happened because I forgot to set its pinMode as OUTPUT. After fixing the pinMode and adjusting the threshold values, both alerts started working correctly.
