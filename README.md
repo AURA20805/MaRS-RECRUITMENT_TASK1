@@ -81,19 +81,19 @@ At first the sensor value was not stable and was giving random numbers. I fixed 
 
 # SEC-B_SMART PARKING GATE SYSTEM
 # https://www.tinkercad.com/things/6uiLCJIpj0I-smart-parking-gate-system?sharecode=tl8V20WKrjNxcPm_zrDhLwKiymHem4UhblctkzlIodc
-# Smoke & Fire Alarm System – README
+# Smart Parking Gate System – README
 What the project does & why I chose it
 
-This project is a simple smoke and fire alarm that uses a temperature sensor and a gas sensor to detect any unsafe conditions. When the temperature goes too high, the LED turns on, and when the gas level increases, the piezo buzzer alerts. I chose this project because it is easy to build, useful in real life, and it clearly shows how sensors can be used for safety systems.
+This project automatically opens a gate when a vehicle comes close to the ultrasonic sensor. When something is far, the red LED stays on, and when it comes near, the green LED turns on and the servo lifts the gate. I chose this project because it feels real-world, simple to build, and clearly shows how sensors can control automatic systems.
 
 Components used & their roles
 
-Gas Sensor (MQ type) – Reads the concentration of smoke or gas in the air.
-Temperature Sensor (LM35) – Converts temperature into voltage, which helps calculate the actual temperature value.
-LED – Acts as a visual alert when temperature crosses the limit.
-Piezo Buzzer – Gives a loud sound when gas level becomes high.
-Arduino – Reads both sensors and decides when to turn on the LED or buzzer.
+Ultrasonic Sensor (HC-SR04) – Measures the distance to detect whether a vehicle is near the gate.
+Servo Motor – Works as the gate arm that lifts up when the vehicle is detected.
+Red LED – Shows that no vehicle is present and the gate is closed.
+Green LED – Turns on when a vehicle is detected and the gate starts opening.
+Arduino – Reads the sensor data and controls the LEDs and servo.
 
 Challenges faced & how I solved them
 
-One issue I had was converting the analog value from the temperature sensor into the correct Celsius value. I fixed it by using the proper formula and checking it on the serial monitor. Another challenge was that the piezo wasn’t reacting at first, and that happened because I forgot to set its pinMode as OUTPUT. After fixing the pinMode and adjusting the threshold values, both alerts started working correctly.
+At first the sensor always showed the same value and nothing worked. The problem was in the wiring and the trig/echo pins. After reconnecting them properly and checking the serial monitor, the distance values became correct. Another issue was the servo not moving, which I fixed by powering it properly and using the right angle values. Once these were corrected, the gate opened smoothly when an object was placed near.
